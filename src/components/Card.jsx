@@ -1,8 +1,15 @@
+import { useState } from "react";
 import btnPlus from "../assets/img/btn.plus.svg";
+import btnChechek from "../assets/img/btn-active.svg";
 import FavoritesBtn from "../assets/img/heart.svg";
 import CardImg from "../assets/img/card_1.svg";
 
 function Card() {
+  const [Cheched, setCheched] = useState(false);
+  const clickPlus = () => {
+    setCheched(true);
+    console.log("Card");
+  };
   return (
     <div className="card">
       <div className="card-favorite">
@@ -15,8 +22,16 @@ function Card() {
           <span className="opacity-5">Цена : </span>
           <b>12 999 руб.</b>
         </div>
-        <button className="button">
-          <img width={11} height={11} src={btnPlus} alt="btnPlus" />
+        <button>
+          <img
+            className="button"
+            width={11}
+            height={11}
+            // src={btnPlus}
+            src={Cheched ? btnChechek : btnPlus}
+            alt="btnPlus"
+            onClick={clickPlus}
+          />
         </button>
       </div>
     </div>

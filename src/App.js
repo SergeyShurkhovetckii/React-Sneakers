@@ -34,7 +34,7 @@ function App() {
               
             )
           })} */}
-          <Card />
+          <Card  />
         </div>
       </div>
     </div>
