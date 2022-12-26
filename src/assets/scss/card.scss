@@ -1,0 +1,27 @@
+.card {
+  border: 1px solid #f3f3f3;
+  padding: rem(20);
+  width: rem(220);
+  border-radius: rem(40);
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+  cursor: pointer;
+  h5 {
+    font-size: rem(14);
+  }
+  &:hover {
+    box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.05);
+    transform: translateY(-5px);
+  }
+}
+.button {
+  width: rem(32);
+  height: rem(32);
+  background: #ffffff;
+  border: 1px solid #f2f2f2;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.card-favorite {
+  position: absolute;
+  cursor: pointer;
+}
