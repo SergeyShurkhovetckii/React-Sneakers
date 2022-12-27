@@ -1,0 +1,20 @@
+.btnAdd {
+  background: #ffffff;
+  border: 1px solid #f2f2f2;
+  transition: background 0.5s ease-in-out;
+  &:hover {
+    background: darken($color: #ffffff, $amount: 1%);
+  }
+}
+.btn__card {
+  cursor: pointer;
+  width: rem(32);
+  height: rem(32);
+  border-radius: rem(8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btnCheck {
+  background: linear-gradient(180deg, #89f09c 0%, #3cc755 100%);
+}
