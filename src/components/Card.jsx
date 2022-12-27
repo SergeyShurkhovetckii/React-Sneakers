@@ -1,6 +1,5 @@
 import { useState } from "react";
 import FavoritesBtn from "../assets/img/heart.svg";
-import CardImg from "../assets/img/card_1.svg";
 import Plus from "../assets/img/plus.svg";
 import Done from "../assets/img/done.svg";
 
