@@ -1,21 +1,116 @@
 import "./index.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Search from "./assets/img/search.svg";
 import { Card } from "./components/Card";
 import { Header } from "./components/Header";
 import { Cart } from "./components/Cart";
 
 function App() {
-  const [items, setItems] = useState([]);
-  const [cartOpned, setCartOpned] = useState(false);
-
-  const arr = [
+  const [items, setItems] = useState([
     {
       title: "Мужские Кроссовки Nike Blazer Mid Suede",
       price: 12999,
-      imageUrl: "/build/img/plus.svg",
+      imageUrl: "./assets/img/sneakers/1.jpg",
     },
-  ];
+    {
+      title: "Мужские Кроссовки Nike Air Max 270",
+      price: 12999,
+      imageUrl: "./assets/img/sneakers/2.jpg",
+    },
+    {
+      title: "Мужские Кроссовки Nike Blazer Mid Suede",
+      price: 8499,
+      imageUrl: "./assets/img/sneakers/3.jpg",
+    },
+    {
+      title: "Кроссовки Puma X Aka Boku Future Rider",
+      price: 8499,
+      imageUrl: "./assets/img/sneakers/4.jpg",
+    },
+    {
+      title: "Мужские Кроссовки Under Armour Curry 8",
+      price: 12999,
+      imageUrl: "./assets/img/sneakers/5.jpg",
+    },
+    {
+      title: "Мужские Кроссовки Nike Kyrie 7",
+      price: 12999,
+      imageUrl: "./assets/img/sneakers/6.jpg",
+    },
+    {
+      title: "Мужские Кроссовки Jordan Air Jordan 11",
+      price: 10799,
+      imageUrl: "./assets/img/sneakers/7.jpg",
+    },
+    {
+      title: "Мужские Кроссовки Nike LeBron XVIII",
+      price: 16499,
+      imageUrl: "./assets/img/sneakers/8.jpg",
+    },
+    {
+      title: "Мужские Кроссовки Nike Lebron XVIII Low",
+      price: 13999,
+      imageUrl: "./assets/img/sneakers/9.jpg",
+    },
+  ]);
+  const [cartOpned, setCartOpned] = useState(false);
+
+  // const arr = [
+  //   {
+  //     "title": "Мужские Кроссовки Nike Blazer Mid Suede",
+  //     "price": 12999,
+  //     "imageUrl": "./assets/img/sneakers/1.jpg",
+  //   },
+  //   {
+  //     "title": "Мужские Кроссовки Nike Air Max 270",
+  //     "price": 12999,
+  //     "imageUrl": "./assets/img/sneakers/2.jpg",
+  //   },
+  //   {
+  //     "title": "Мужские Кроссовки Nike Blazer Mid Suede",
+  //     "price": 8499,
+  //     "imageUrl": "./assets/img/sneakers/3.jpg",
+  //   },
+  //   {
+  //     "title": "Кроссовки Puma X Aka Boku Future Rider",
+  //     "price": 8499,
+  //     "imageUrl": "./assets/img/sneakers/4.jpg",
+  //   },
+  //   {
+  //     "title": "Мужские Кроссовки Under Armour Curry 8",
+  //     "price": 12999,
+  //     "imageUrl": "./assets/img/sneakers/5.jpg",
+  //   },
+  //   {
+  //     "title": "Мужские Кроссовки Nike Kyrie 7",
+  //     "price": 12999,
+  //     "imageUrl": "./assets/img/sneakers/6.jpg",
+  //   },
+  //   {
+  //     "title": "Мужские Кроссовки Jordan Air Jordan 11",
+  //     "price": 10799,
+  //     "imageUrl": "./assets/img/sneakers/7.jpg",
+  //   },
+  //   {
+  //     "title": "Мужские Кроссовки Nike LeBron XVIII",
+  //     "price": 16499,
+  //     "imageUrl": "./assets/img/sneakers/8.jpg",
+  //   },
+  //   {
+  //     "title": "Мужские Кроссовки Nike Lebron XVIII Low",
+  //     "price": 13999,
+  //     "imageUrl": "./assets/img/sneakers/9.jpg",
+  //   },
+  // ];
+  useEffect(() => {
+    fetch("https://63aa970a7d7edb3ae62b8930.mockapi.io/items")
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        setItems(json);
+      });
+  }, []);
 
   return (
     <div className="wrapper clear">
@@ -34,16 +129,19 @@ function App() {
         </div>
         <div className="flex-wrap justify-between sneakers d-flex">
           {/* карточки товаров  */}
-          {/* {arr.map((item) => {
+          {items.map((item) => {
             return (
-              <div>
-                <p>{item.title}</p>
-                <p>{item.price}</p>
-                <img src={item.imageUrl} />
-              </div>
+              <Card
+                key={item.id}
+                title={item.title}
+                price={item.price}
+                imageUrl={item.imageUrl}
+                onClickFavorite={() => {
+                  console.log("favorite");
+                }}
+              />
             );
-          })} */}
-          <Card />
+          })}
         </div>
       </div>
     </div>
