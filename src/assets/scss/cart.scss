@@ -31,14 +31,7 @@ h2 {
     font-size: rem(14);
   }
 }
-.btn-remove {
-  cursor: pointer;
-  opacity: 0.5;
-  transition: opacity ease-in-out;
-  &:hover {
-    opacity: 1;
-  }
-}
+
 .totalBlock {
   li {
     display: flex;

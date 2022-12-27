@@ -1,22 +1,19 @@
 import "./index.scss";
+import { useState } from "react";
 import Search from "./assets/img/search.svg";
 import { Card } from "./components/Card";
 import { Header } from "./components/Header";
 import { Cart } from "./components/Cart";
 
 function App() {
-  const arr = [
-    { name: "Мужские Кроссовки Nike Air Max 270", price: 10000 },
-    { name: "Мужские Кроссовки Nike Air Max 280", price: 10000 },
-    { name: "Мужские Кроссовки Nike Air Max 290", price: 10000 },
-    { name: "Мужские Кроссовки Nike Air Max 230", price: 10000 },
-  ];
+  const [cartOpned, setCartOpned] = useState(false);
+
   return (
     <div className="wrapper clear">
       {/* Корзина */}
-      <Cart />
+      {cartOpned && <Cart onClose={() => setCartOpned(false)} />}
       {/* Header */}
-      <Header />
+      <Header onClickCart={() => setCartOpned(true)} />
       <div className="p-40 content">
         <div className="justify-between mb-40 d-flex align-center ">
           <h1 className="fw-bold">Все кроссовки</h1>
@@ -34,7 +31,7 @@ function App() {
               
             )
           })} */}
-          <Card  />
+          <Card />
         </div>
       </div>
     </div>

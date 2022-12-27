@@ -20,11 +20,11 @@ function Card() {
           <b>12 999 руб.</b>
         </div>
         {Cheched ? (
-          <button onClick={clickPlus} className="btn__card btnCheck">
+          <button onClick={clickPlus} className="btn btnCheck">
             <img src="/img/check.svg" alt="" />
           </button>
         ) : (
-          <button onClick={clickPlus} className=" btn__card btnAdd">
+          <button onClick={clickPlus} className=" btn btnAdd">
             <img src="/img/plus.svg" alt="" />
           </button>
         )}

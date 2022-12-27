@@ -3,7 +3,8 @@ import Cart from "../assets/img/cart.svg";
 import User from "../assets/img/user.svg";
 import Favorites from "../assets/img/favorite.svg";
 
-function Header() {
+function Header(props) {
+  const { onClickCart } = props;
   return (
     <header className="justify-between p-40 d-flex">
       <div className="d-flex align-center">
@@ -14,7 +15,7 @@ function Header() {
         </div>
       </div>
       <ul className="d-flex align-center header-control">
-        <li>
+        <li onClick={onClickCart} className="cu-p">
           <img src={Cart} alt="cart" />
           <span className="ml-10">1205 руб.</span>
         </li>
