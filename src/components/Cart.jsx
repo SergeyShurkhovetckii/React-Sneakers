@@ -1,5 +1,6 @@
 import arrow from "../assets/img/arrow.svg";
 import Card from "../assets/img/card_1.svg";
+import Remove from "../assets/img/remove.svg";
 function Cart(props) {
   const { onClose } = props;
   return (
@@ -8,7 +9,7 @@ function Cart(props) {
         <div className="justify-between mb-30 align-center d-flex">
           <h2>Корзина</h2>
           <div onClick={onClose} className="btn btn-remove">
-            <img src="/img/btn-remove.svg" alt="Close" />
+            <img src={Remove} alt="Close" />
           </div>
         </div>
         <div className="flex">
@@ -19,7 +20,7 @@ function Cart(props) {
               <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
               <b>12 999 руб.</b>
             </div>
-            {/* <img className="btn-remove" src={btnRemove} alt="" /> */}
+            <img className="btn-remove" src={Remove} alt="" />
           </div>
           <div className="p-20 mb-20 cartItem d-flex align-center">
             <img className="mr-15" width={70} height={70} src={Card} alt="" />
@@ -27,7 +28,7 @@ function Cart(props) {
               <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
               <b>12 999 руб.</b>
             </div>
-            {/* <img className="btn-remove" src={btnRemove} alt="" /> */}
+            <img className="btn-remove" src={Remove} alt="" />
           </div>
         </div>
         <ul className="totalBlock">

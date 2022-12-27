@@ -1,6 +1,8 @@
 import { useState } from "react";
 import FavoritesBtn from "../assets/img/heart.svg";
 import CardImg from "../assets/img/card_1.svg";
+import Plus from "../assets/img/plus.svg";
+import Done from "../assets/img/done.svg";
 
 function Card() {
   const [Cheched, setCheched] = useState(false);
@@ -21,11 +23,11 @@ function Card() {
         </div>
         {Cheched ? (
           <button onClick={clickPlus} className="btn btnCheck">
-            <img src="/img/check.svg" alt="" />
+            <img src={Done} alt=" " />
           </button>
         ) : (
           <button onClick={clickPlus} className=" btn btnAdd">
-            <img src="/img/plus.svg" alt="" />
+            <img src={Plus} alt="Плюс" />
           </button>
         )}
       </div>

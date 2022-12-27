@@ -6,7 +6,16 @@ import { Header } from "./components/Header";
 import { Cart } from "./components/Cart";
 
 function App() {
+  const [items, setItems] = useState([]);
   const [cartOpned, setCartOpned] = useState(false);
+
+  const arr = [
+    {
+      title: "Мужские Кроссовки Nike Blazer Mid Suede",
+      price: 12999,
+      imageUrl: "/build/img/plus.svg",
+    },
+  ];
 
   return (
     <div className="wrapper clear">
@@ -27,9 +36,12 @@ function App() {
           {/* карточки товаров  */}
           {/* {arr.map((item) => {
             return (
-              <p>{item.name}</p>
-              
-            )
+              <div>
+                <p>{item.title}</p>
+                <p>{item.price}</p>
+                <img src={item.imageUrl} />
+              </div>
+            );
           })} */}
           <Card />
         </div>
