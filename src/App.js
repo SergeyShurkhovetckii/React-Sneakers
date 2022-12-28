@@ -35,8 +35,7 @@ function App() {
   const onRemoveItem = (id) => {
     // Удаление товаров
     console.log(id);
-    // axios.delete(`https://63aa970a7d7edb3ae62b8930.mockapi.io/cart${id}`);
-    // setCardItems((prev) => [...prev, obj]);
+    axios.delete(`https://63aa970a7d7edb3ae62b8930.mockapi.io/cart${id}`);
     setCardItems((prev) => prev.filter((item) => item.id !== id));
   };
   const onChangeSearchInput = (event) => {
