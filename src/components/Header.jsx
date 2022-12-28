@@ -8,10 +8,9 @@ function Header(props) {
   const { cardItems, onClickCart } = props;
   return (
     <header className="justify-between  d-flex align-center">
-      <div className="d-flex align-center">
-        <img src={logo} alt="logo" />
-        <div className="ml-15 header-left">
-          <h3 className="text-uppercase fw-bold">REACT SNEAKERS</h3>
+      <div className="d-flex align-center flex-column">
+        <img className="logo" width={150} src={logo} alt="logo" />
+        <div className="mt-5 header-left">
           <p className="opacity-5">Магазин лучших кроссовок</p>
         </div>
       </div>

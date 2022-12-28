@@ -14,6 +14,11 @@ header {
     background: #fff;
     z-index: 100;
   }
+  .logo {
+    @include r(768) {
+      width: rem(80);
+    }
+  }
 }
 .mob-menu {
   display: none;
