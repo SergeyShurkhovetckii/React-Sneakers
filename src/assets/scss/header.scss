@@ -1,6 +1,23 @@
 .header-control {
   gap: rem(30);
+  @include r(768) {
+    display: none !important;
+  }
 }
 header {
+  padding: rem(40);
   border-bottom: 1px solid #eaeaea;
+  @include r(768) {
+    padding: rem(20) !important;
+    position: sticky;
+    width: 100%;
+    background: #fff;
+    z-index: 100;
+  }
+}
+.mob-menu {
+  display: none;
+  @include r(768) {
+    display: block;
+  }
 }

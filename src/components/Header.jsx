@@ -2,11 +2,12 @@ import logo from "../assets/img/logo.svg";
 import Cart from "../assets/img/cart.svg";
 import User from "../assets/img/user.svg";
 import Favorites from "../assets/img/favorite.svg";
+import BurgerMenu from "../assets/img/mobMenuBurger.svg";
 
 function Header(props) {
   const { onClickCart } = props;
   return (
-    <header className="justify-between p-40 d-flex">
+    <header className="justify-between  d-flex align-center">
       <div className="d-flex align-center">
         <img src={logo} alt="logo" />
         <div className="ml-15 header-left">
@@ -26,6 +27,9 @@ function Header(props) {
           <img src={User} alt="user" />
         </li>
       </ul>
+      <div className="mob-menu">
+        <img src={BurgerMenu} alt="Mеню" />
+      </div>
     </header>
   );
 }
