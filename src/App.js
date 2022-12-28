@@ -8,6 +8,7 @@ import { Cart } from "./components/Cart";
 function App() {
   const [items, setItems] = useState([]);
   const [cardItems, setCardItems] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
   const [cartOpned, setCartOpned] = useState(false);
   useEffect(() => {
     fetch("https://63aa970a7d7edb3ae62b8930.mockapi.io/items")
@@ -23,6 +24,9 @@ function App() {
     // setCardItems([...cardItems, obj]);
     setCardItems((prev) => [...prev, obj]);
   };
+  const onChangeSearchInput = (event) => {
+    setSearchValue(event.target.value);
+  };
 
   return (
     <div className="wrapper clear">
@@ -34,19 +38,27 @@ function App() {
       <Header onClickCart={() => setCartOpned(true)} />
       <div className="p-40 content">
         <div className="justify-between mb-40 d-flex align-center ">
-          <h1 className="fw-bold">Все кроссовки</h1>
+          <h1 className="fw-bold">
+            {searchValue ? `Поиск по запросу "${searchValue}"` : "Все кросовки"}
+          </h1>
           {/* Поиск */}
           <div className="search-block">
             <img src={Search} alt="search" />
-            <input className="search" placeholder="Поиск..." type="text" />
+            <input
+              onChange={onChangeSearchInput}
+              value={searchValue}
+              className="search"
+              placeholder="Поиск..."
+              type="text"
+            />
           </div>
         </div>
         <div className="flex-wrap justify-between sneakers d-flex">
           {/* карточки товаров  */}
-          {items.map((item) => {
+          {items.map((item, index) => {
             return (
               <Card
-                key={item.title}
+                key={index}
                 title={item.title}
                 price={item.price}
                 imageUrl={item.imageUrl}
