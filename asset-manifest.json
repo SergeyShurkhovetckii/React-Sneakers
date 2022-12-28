@@ -1,11 +1,12 @@
 {
   "files": {
-    "main.css": "/React-Sneakers/static/css/main.f23c20cd.css",
-    "main.js": "/React-Sneakers/static/js/main.90004db7.js",
+    "main.css": "/React-Sneakers/static/css/main.ccfea79f.css",
+    "main.js": "/React-Sneakers/static/js/main.42a55b68.js",
     "static/media/logo.svg": "/React-Sneakers/static/media/logo.dd4e1c171c8fb40cd47b691265c99cae.svg",
-    "static/media/btn-heart.svg": "/React-Sneakers/static/media/btn-heart.d491e085580f8e4f1b47f07d9164dc0f.svg",
-    "static/media/favorite.svg": "/React-Sneakers/static/media/favorite.fb6fc173851dd67a64d51b7306e810d1.svg",
+    "static/media/heart.svg": "/React-Sneakers/static/media/heart.2e8eb80b40d148704c1fde457b403671.svg",
     "static/media/done.svg": "/React-Sneakers/static/media/done.5b8417e102965b6a912c9bcf5a8f4e72.svg",
+    "static/media/favorite.svg": "/React-Sneakers/static/media/favorite.36b0297aa48d897d14d2989b98395ee4.svg",
+    "static/media/heart-active.svg": "/React-Sneakers/static/media/heart-active.b9537784f11146915ed757d5a4b55d96.svg",
     "static/media/user.svg": "/React-Sneakers/static/media/user.381202f7e3edbc1a00b14fbd5e529a32.svg",
     "static/media/cart.svg": "/React-Sneakers/static/media/cart.5113b08fb682dc25f3856ef704a6c05d.svg",
     "index.html": "/React-Sneakers/index.html",
@@ -13,11 +14,11 @@
     "static/media/remove.svg": "/React-Sneakers/static/media/remove.a40aad38a199ccc6fe9e9d3f9c43d8e7.svg",
     "static/media/plus.svg": "/React-Sneakers/static/media/plus.a4c35ddbacd9564e07efd7494cfde80d.svg",
     "static/media/arrow.svg": "/React-Sneakers/static/media/arrow.fc3222511ec5a224a4abf3bbf4c2566f.svg",
-    "main.f23c20cd.css.map": "/React-Sneakers/static/css/main.f23c20cd.css.map",
-    "main.90004db7.js.map": "/React-Sneakers/static/js/main.90004db7.js.map"
+    "main.ccfea79f.css.map": "/React-Sneakers/static/css/main.ccfea79f.css.map",
+    "main.42a55b68.js.map": "/React-Sneakers/static/js/main.42a55b68.js.map"
   },
   "entrypoints": [
-    "static/css/main.f23c20cd.css",
-    "static/js/main.90004db7.js"
+    "static/css/main.ccfea79f.css",
+    "static/js/main.42a55b68.js"
   ]
 }
