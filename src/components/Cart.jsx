@@ -1,7 +1,7 @@
 import arrow from "../assets/img/arrow.svg";
 import Remove from "../assets/img/remove.svg";
 function Cart(props) {
-  const { items = [], onClose } = props;
+  const { items = [], onClose, onRemove } = props;
   return (
     <div className="overlay">
       <div className="flex cart d-flex flex-column">
@@ -11,7 +11,7 @@ function Cart(props) {
             <img src={Remove} alt="Close" />
           </div>
         </div>
-        <div className="flex">
+        <div className="flex cart-list">
           {/* Карточки в корзине */}
           {items.map((obj) => (
             <div className="p-20 mb-20 cartItem d-flex align-center">
@@ -26,7 +26,12 @@ function Cart(props) {
                 <p className="mb-5">{obj.title}</p>
                 <b>{obj.price}руб.</b>
               </div>
-              <img className="btn-remove" src={Remove} alt="" />
+              <img
+                onClick={() => onRemove(obj.id)}
+                className="btn-remove"
+                src={Remove}
+                alt=""
+              />
             </div>
           ))}
         </div>

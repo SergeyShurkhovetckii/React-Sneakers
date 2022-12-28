@@ -5,6 +5,7 @@ import Remove from "./assets/img/remove.svg";
 import { Card } from "./components/Card";
 import { Header } from "./components/Header";
 import { Cart } from "./components/Cart";
+import axios from "axios";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -12,18 +13,31 @@ function App() {
   const [searchValue, setSearchValue] = useState("");
   const [cartOpned, setCartOpned] = useState(false);
   useEffect(() => {
-    fetch("https://63aa970a7d7edb3ae62b8930.mockapi.io/items")
+    // Получение данных с backend
+    axios
+      .get("https://63aa970a7d7edb3ae62b8930.mockapi.io/items")
       .then((response) => {
-        return response.json();
-      })
-      .then((json) => {
-        setItems(json);
+        setItems(response.data);
+      });
+    // Получение данных  корзины  с backend
+    axios
+      .get("https://63aa970a7d7edb3ae62b8930.mockapi.io/cart")
+      .then((response) => {
+        setCardItems(response.data);
       });
   }, []);
 
   const adToCart = (obj) => {
-    // setCardItems([...cardItems, obj]);
+    // Добавление данных в backend
+    axios.post("https://63aa970a7d7edb3ae62b8930.mockapi.io/cart", obj);
     setCardItems((prev) => [...prev, obj]);
+  };
+  const onRemoveItem = (id) => {
+    // Удаление товаров
+    console.log(id);
+    // axios.delete(`https://63aa970a7d7edb3ae62b8930.mockapi.io/cart${id}`);
+    // setCardItems((prev) => [...prev, obj]);
+    setCardItems((prev) => prev.filter((item) => item.id !== id));
   };
   const onChangeSearchInput = (event) => {
     setSearchValue(event.target.value);
@@ -33,7 +47,11 @@ function App() {
     <div className="wrapper clear">
       {/* Корзина */}
       {cartOpned && (
-        <Cart items={cardItems} onClose={() => setCartOpned(false)} />
+        <Cart
+          items={cardItems}
+          onClose={() => setCartOpned(false)}
+          onRemove={onRemoveItem}
+        />
       )}
       {/* Header */}
       <Header onClickCart={() => setCartOpned(true)} />
@@ -62,24 +80,28 @@ function App() {
             )}
           </div>
         </div>
-        <div className="flex-wrap justify-between sneakers d-flex">
+        <div className="flex-wrap  sneakers d-flex">
           {/* карточки товаров  */}
-          {items.map((item, index) => {
-            return (
-              <Card
-                key={index}
-                title={item.title}
-                price={item.price}
-                imageUrl={item.imageUrl}
-                onClickFavorite={() => {
-                  console.log("favorite");
-                }}
-                onAddBasket={(obj) => {
-                  adToCart(obj);
-                }}
-              />
-            );
-          })}
+          {items
+            .filter((item) =>
+              item.title.toLowerCase().includes(searchValue.toLowerCase())
+            )
+            .map((item, index) => {
+              return (
+                <Card
+                  key={index}
+                  title={item.title}
+                  price={item.price}
+                  imageUrl={item.imageUrl}
+                  onClickFavorite={() => {
+                    console.log("favorite");
+                  }}
+                  onAddBasket={(obj) => {
+                    adToCart(obj);
+                  }}
+                />
+              );
+            })}
         </div>
       </div>
     </div>
