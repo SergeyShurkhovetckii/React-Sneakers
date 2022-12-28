@@ -1,6 +1,7 @@
 import "./index.scss";
 import React, { useState, useEffect } from "react";
 import Search from "./assets/img/search.svg";
+import Remove from "./assets/img/remove.svg";
 import { Card } from "./components/Card";
 import { Header } from "./components/Header";
 import { Cart } from "./components/Cart";
@@ -51,6 +52,14 @@ function App() {
               placeholder="Поиск..."
               type="text"
             />
+            {searchValue && (
+              <button
+                onClick={() => setSearchValue("")}
+                className="btn btn-remove"
+              >
+                <img src={Remove} alt="Удалить" />
+              </button>
+            )}
           </div>
         </div>
         <div className="flex-wrap justify-between sneakers d-flex">

@@ -2,6 +2,12 @@
   border: 1px solid #f3f3f3;
   border-radius: rem(10);
   padding: 0 rem(15);
+  position: relative;
+  button {
+    position: absolute;
+    top: rem(3);
+    right: rem(3);
+  }
 }
 .search {
   padding: rem(10);
