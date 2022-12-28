@@ -26,12 +26,13 @@ function Cart(props) {
                 <p className="mb-5">{obj.title}</p>
                 <b>{obj.price}руб.</b>
               </div>
-              <img
+              {/* Кнопка удалить  */}
+              <button
                 onClick={() => onRemove(obj.id)}
-                className="btn-remove"
-                src={Remove}
-                alt=""
-              />
+                className="btn btn-remove"
+              >
+                <img src={Remove} alt="Удалить" />
+              </button>
             </div>
           ))}
         </div>

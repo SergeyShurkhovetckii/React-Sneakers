@@ -61,7 +61,7 @@ function App() {
             {searchValue ? `Поиск по запросу "${searchValue}"` : "Все кросовки"}
           </h1>
           {/* Поиск */}
-          <div className="search-block">
+          <form className="search-block">
             <img src={Search} alt="search" />
             <input
               onChange={onChangeSearchInput}
@@ -78,7 +78,7 @@ function App() {
                 <img src={Remove} alt="Удалить" />
               </button>
             )}
-          </div>
+          </form>
         </div>
         <div className="flex-wrap  sneakers d-flex">
           {/* карточки товаров  */}

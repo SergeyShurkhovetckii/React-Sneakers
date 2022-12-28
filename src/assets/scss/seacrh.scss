@@ -3,6 +3,8 @@
   border-radius: rem(10);
   padding: 0 rem(15);
   position: relative;
+  width: rem(360);
+
   button {
     position: absolute;
     top: rem(3);
@@ -11,5 +13,4 @@
 }
 .search {
   padding: rem(10);
-  width: rem(200);
 }

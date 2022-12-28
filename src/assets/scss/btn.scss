@@ -25,12 +25,12 @@
 }
 
 .btn-remove {
-  background: #fff;
-  border: 1px solid #dbdbdb;
-  opacity: 0.5;
   padding: rem(8);
   transition: opacity ease-in-out;
+  background-color: $red;
+  border: rem(1) solid $red;
+  transition: background 0.5ms ease-in-out;
   &:hover {
-    opacity: 1;
+    background: darken($color: $red, $amount: 5%);
   }
 }
