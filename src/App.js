@@ -53,7 +53,7 @@ function App() {
         />
       )}
       {/* Header */}
-      <Header onClickCart={() => setCartOpned(true)} />
+      <Header onClickCart={() => setCartOpned(true)} cardItems={cardItems} />
       <div className="p-40 content">
         <div className="justify-between mb-40 d-flex align-center ">
           <h1 className="fw-bold">

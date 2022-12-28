@@ -8,7 +8,7 @@ header {
   padding: rem(40);
   border-bottom: 1px solid #eaeaea;
   @include r(768) {
-    padding: rem(20) !important;
+    padding: rem(20) rem(40);
     position: sticky;
     width: 100%;
     background: #fff;
@@ -20,4 +20,14 @@ header {
   @include r(768) {
     display: block;
   }
+}
+.label {
+  padding: rem(3);
+  background: $grey;
+  border-radius: 50%;
+  width: rem(32);
+  height: rem(32);
+  position: relative;
+  bottom: rem(10);
+  color: #fff;
 }

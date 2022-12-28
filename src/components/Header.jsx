@@ -5,7 +5,7 @@ import Favorites from "../assets/img/favorite.svg";
 import BurgerMenu from "../assets/img/mobMenuBurger.svg";
 
 function Header(props) {
-  const { onClickCart } = props;
+  const { cardItems, onClickCart } = props;
   return (
     <header className="justify-between  d-flex align-center">
       <div className="d-flex align-center">
@@ -16,9 +16,11 @@ function Header(props) {
         </div>
       </div>
       <ul className="d-flex align-center header-control">
-        <li onClick={onClickCart} className="cu-p">
+        <li onClick={onClickCart} className="cu-p d-flex">
           <img src={Cart} alt="cart" />
-          <span className="ml-10">1205 руб.</span>
+          <div className="label d-flex align-center justify-center">
+            {cardItems.length}
+          </div>
         </li>
         <li>
           <img src={Favorites} alt="favorites" />
