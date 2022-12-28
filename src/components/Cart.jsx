@@ -1,8 +1,7 @@
 import arrow from "../assets/img/arrow.svg";
-import Card from "../assets/img/card_1.svg";
 import Remove from "../assets/img/remove.svg";
 function Cart(props) {
-  const { onClose } = props;
+  const { items = [], onClose } = props;
   return (
     <div className="overlay">
       <div className="flex cart d-flex flex-column">
@@ -14,22 +13,22 @@ function Cart(props) {
         </div>
         <div className="flex">
           {/* Карточки в корзине */}
-          <div className="p-20 mb-20 cartItem d-flex align-center">
-            <img className="mr-15" width={70} height={70} src={Card} alt="" />
-            <div className="mr-5">
-              <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
-              <b>12 999 руб.</b>
+          {items.map((obj) => (
+            <div className="p-20 mb-20 cartItem d-flex align-center">
+              <img
+                className="mr-15"
+                width={70}
+                height={70}
+                src={obj.imageUrl}
+                alt=""
+              />
+              <div className="mr-5">
+                <p className="mb-5">{obj.title}</p>
+                <b>{obj.price}руб.</b>
+              </div>
+              <img className="btn-remove" src={Remove} alt="" />
             </div>
-            <img className="btn-remove" src={Remove} alt="" />
-          </div>
-          <div className="p-20 mb-20 cartItem d-flex align-center">
-            <img className="mr-15" width={70} height={70} src={Card} alt="" />
-            <div className="mr-5">
-              <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
-              <b>12 999 руб.</b>
-            </div>
-            <img className="btn-remove" src={Remove} alt="" />
-          </div>
+          ))}
         </div>
         <ul className="totalBlock">
           <li className="d-flex">

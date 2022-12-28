@@ -7,6 +7,7 @@ import { Cart } from "./components/Cart";
 
 function App() {
   const [items, setItems] = useState([]);
+  const [cardItems, setCardItems] = useState([]);
   const [cartOpned, setCartOpned] = useState(false);
   useEffect(() => {
     fetch("https://63aa970a7d7edb3ae62b8930.mockapi.io/items")
@@ -18,10 +19,17 @@ function App() {
       });
   }, []);
 
+  const adToCart = (obj) => {
+    // setCardItems([...cardItems, obj]);
+    setCardItems((prev) => [...prev, obj]);
+  };
+
   return (
     <div className="wrapper clear">
       {/* Корзина */}
-      {cartOpned && <Cart onClose={() => setCartOpned(false)} />}
+      {cartOpned && (
+        <Cart items={cardItems} onClose={() => setCartOpned(false)} />
+      )}
       {/* Header */}
       <Header onClickCart={() => setCartOpned(true)} />
       <div className="p-40 content">
@@ -44,6 +52,9 @@ function App() {
                 imageUrl={item.imageUrl}
                 onClickFavorite={() => {
                   console.log("favorite");
+                }}
+                onAddBasket={(obj) => {
+                  adToCart(obj);
                 }}
               />
             );
