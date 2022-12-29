@@ -11,6 +11,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #e7f6ff;
+  color: $black;
   @include r(1200) {
     background: #fff;
   }

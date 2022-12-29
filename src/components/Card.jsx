@@ -15,6 +15,7 @@ function Card(props) {
   };
   const clickFavorite = () => {
     setFavorite(!favorite);
+    onClickFavorite({ title, price, imageUrl });
   };
   return (
     <div className="card">
@@ -35,7 +36,7 @@ function Card(props) {
       <div className="justify-between d-flex mt-15">
         <div className="flex-column d-flex">
           <span className="opacity-5">Цена : </span>
-          <b>{price} руб.</b>
+          <b className="card__price mt-5">{price} руб.</b>
         </div>
         {Cheched ? (
           <button onClick={clickPlus} className="btn btnCheck">

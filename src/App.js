@@ -6,10 +6,13 @@ import { Card } from "./components/Card";
 import { Header } from "./components/Header";
 import { Cart } from "./components/Cart";
 import axios from "axios";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   const [items, setItems] = useState([]);
   const [cardItems, setCardItems] = useState([]);
+  const [favoritesItems, setFavoritesItems] = useState([]);
+
   const [searchValue, setSearchValue] = useState("");
   const [cartOpned, setCartOpned] = useState(false);
   useEffect(() => {
@@ -27,6 +30,12 @@ function App() {
       });
   }, []);
 
+  const onFavorite = (obj) => {
+    // Добавление избранное  данных в backend
+    axios.post("https://63aa970a7d7edb3ae62b8930.mockapi.io/favorites", obj);
+    setFavoritesItems((prev) => [...prev, obj]);
+  };
+
   const adToCart = (obj) => {
     // Добавление данных в backend
     axios.post("https://63aa970a7d7edb3ae62b8930.mockapi.io/cart", obj);
@@ -35,7 +44,7 @@ function App() {
   const onRemoveItem = (id) => {
     // Удаление товаров
     console.log(id);
-    axios.delete(`https://63aa970a7d7edb3ae62b8930.mockapi.io/cart${id}`);
+    axios.delete(`https://63aa970a7d7edb3ae62b8930.mockapi.io/cart/${id}`);
     setCardItems((prev) => prev.filter((item) => item.id !== id));
   };
   const onChangeSearchInput = (event) => {
@@ -79,6 +88,10 @@ function App() {
             )}
           </form>
         </div>
+        <Routes>
+          <Route path="/favorites" element={<p>vfvfffvffvff</p>}></Route>
+        </Routes>
+
         <div className="flex-wrap  sneakers d-flex">
           {/* карточки товаров  */}
           {items
@@ -92,8 +105,9 @@ function App() {
                   title={item.title}
                   price={item.price}
                   imageUrl={item.imageUrl}
-                  onClickFavorite={() => {
-                    console.log("favorite");
+                  onClickFavorite={(obj) => {
+                    onFavorite(obj);
+                    console.log(obj);
                   }}
                   onAddBasket={(obj) => {
                     adToCart(obj);
